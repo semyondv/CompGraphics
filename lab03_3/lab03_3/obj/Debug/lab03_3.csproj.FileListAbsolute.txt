@@ -1,0 +1,12 @@
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.Form1.resources
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.Properties.Resources.resources
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.csproj.GenerateResource.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.csproj.CoreCompileInputs.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\bin\Debug\lab03_3.exe.config
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\bin\Debug\lab03_3.exe
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\bin\Debug\lab03_3.pdb
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.exe
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.pdb
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\bin\Debug\WindowsBase.dll
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.csprojAssemblyReference.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab03_3\lab03_3\obj\Debug\lab03_3.csproj.CopyComplete
