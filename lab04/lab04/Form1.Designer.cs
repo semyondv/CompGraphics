@@ -41,9 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.polyAcions = new System.Windows.Forms.ComboBox();
+            this.angleVal = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.angleVal)).BeginInit();
             this.SuspendLayout();
             // 
             // picArea
@@ -103,7 +106,8 @@
             this.lineActions.FormattingEnabled = true;
             this.lineActions.Items.AddRange(new object[] {
             "Пересечение ребер",
-            "Смещение"});
+            "Смещение",
+            "Поворот 90"});
             this.lineActions.Location = new System.Drawing.Point(280, 409);
             this.lineActions.Name = "lineActions";
             this.lineActions.Size = new System.Drawing.Size(153, 21);
@@ -180,11 +184,34 @@
             this.polyAcions.Size = new System.Drawing.Size(153, 21);
             this.polyAcions.TabIndex = 10;
             // 
+            // angleVal
+            // 
+            this.angleVal.Location = new System.Drawing.Point(171, 466);
+            this.angleVal.Maximum = new decimal(new int[] {
+            359,
+            0,
+            0,
+            0});
+            this.angleVal.Name = "angleVal";
+            this.angleVal.Size = new System.Drawing.Size(36, 20);
+            this.angleVal.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(83, 468);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Угол поворота";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 515);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.angleVal);
             this.Controls.Add(this.polyAcions);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -202,6 +229,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dx)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.angleVal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +250,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox polyAcions;
+        private System.Windows.Forms.NumericUpDown angleVal;
+        private System.Windows.Forms.Label label3;
     }
 }
 

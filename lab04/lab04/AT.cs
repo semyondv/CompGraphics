@@ -63,7 +63,7 @@ namespace lab04
             newP.Y = (int)m2[1, 1];
             return newP;
         }
-        public static PointF rotate(PointF center, int angle, Point curP)
+        public static PointF Rotation(PointF center, int angle, PointF curP)
         {
             double[,] m1 = { 
                 { 1, 0, 0 }, 
@@ -85,6 +85,17 @@ namespace lab04
             newP = MatrixMul(newP, m2);
 
             return newP;
+        }
+
+        public static PointF PolygonCenter(List<PointF> points)
+        {
+            float sum_x = 0, sum_y = 0;
+            for (int i = 0; i < points.Count; i++)
+            {
+                sum_x += points[i].X;
+                sum_y += points[i].Y;
+            }
+            return new PointF(sum_x / points.Count, sum_y / points.Count);
         }
     }
 }

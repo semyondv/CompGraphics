@@ -55,11 +55,17 @@ namespace lab04
                     for (int i = 0; i < pointsArr.Count - 1; i++)
                         pic.DrawLine(new Pen(Color.Black), pointsArr[i], pointsArr[i + 1]);
                 }
+                else if (polyAcions.SelectedIndex == 1)
+                {
+                    PointF center = AT.PolygonCenter(pointsArr);
+                    for (int i = 0; i < pointsArr.Count; i++)
+                        pointsArr[i] = AT.Rotation(center, (int)angleVal.Value, pointsArr[i]);
+                    pic.FillRectangle(new SolidBrush(Color.White), 0, 0, picArea.Width, picArea.Height);
+                    for (int i = 0; i < pointsArr.Count - 1; i++)
+                        pic.DrawLine(new Pen(Color.Black), pointsArr[i], pointsArr[i + 1]);
+                }
             }
-            else if(polyAcions.SelectedIndex == 1)
-            {
-
-            }
+            
             picArea.Invalidate();
         }
 
