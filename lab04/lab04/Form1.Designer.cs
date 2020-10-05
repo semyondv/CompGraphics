@@ -43,6 +43,7 @@
             this.polyAcions = new System.Windows.Forms.ComboBox();
             this.angleVal = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.pointPositionInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dy)).BeginInit();
@@ -107,7 +108,8 @@
             this.lineActions.Items.AddRange(new object[] {
             "Пересечение ребер",
             "Смещение",
-            "Поворот 90"});
+            "Поворот 90",
+            "Положение точки"});
             this.lineActions.Location = new System.Drawing.Point(280, 409);
             this.lineActions.Name = "lineActions";
             this.lineActions.Size = new System.Drawing.Size(153, 21);
@@ -205,11 +207,20 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Угол поворота";
             // 
+            // pointPositionInfo
+            // 
+            this.pointPositionInfo.AutoSize = true;
+            this.pointPositionInfo.Location = new System.Drawing.Point(523, 493);
+            this.pointPositionInfo.Name = "pointPositionInfo";
+            this.pointPositionInfo.Size = new System.Drawing.Size(0, 13);
+            this.pointPositionInfo.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 515);
+            this.Controls.Add(this.pointPositionInfo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.angleVal);
             this.Controls.Add(this.polyAcions);
@@ -252,6 +263,7 @@
         private System.Windows.Forms.ComboBox polyAcions;
         private System.Windows.Forms.NumericUpDown angleVal;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label pointPositionInfo;
     }
 }
 

@@ -75,8 +75,8 @@ namespace lab04
                 { center.X, center.Y, 1 } 
             },
                 m3 = { 
-                { Math.Cos(Math.PI / 180 * angle), Math.Sin(Math.PI / 180 * angle), 0 }, 
-                { -Math.Sin(Math.PI / 180 * angle), Math.Cos(Math.PI / 180 * angle), 0 }, 
+                { Math.Cos(Math.PI / 180.0 * angle), Math.Sin(Math.PI / 180.0 * angle), 0 }, 
+                { -Math.Sin(Math.PI / 180.0 * angle), Math.Cos(Math.PI / 180.0 * angle), 0 }, 
                 { 0, 0, 1 } 
             };
 
