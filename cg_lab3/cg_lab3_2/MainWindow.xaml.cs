@@ -24,7 +24,7 @@ namespace cg_lab3_2
         public MainWindow()
         {
             InitializeComponent();
-            image = new Bitmap(@"D:\Projects\cg_lab3\pic5.png");
+            image = new Bitmap(@"D:\Projects\CG\cg_lab3\pic5.png");
         }
 
         Bitmap image;
@@ -102,6 +102,7 @@ namespace cg_lab3_2
                             direction = (direction + i + 2) % 8;
                             notVisited.Enqueue((point.Item1, point.Item2));
                             visited.Add((point.Item1, point.Item2));
+                            break;
                         }
                     }
                 }

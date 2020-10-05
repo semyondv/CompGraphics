@@ -8,3 +8,13 @@ C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab04\lab04\bin\Debug\lab
 C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab04\lab04\bin\Debug\lab04.pdb
 C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab04\lab04\obj\Debug\lab04.exe
 C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab04\lab04\obj\Debug\lab04.pdb
+D:\Projects\CG\lab04\lab04\bin\Debug\lab04.exe.config
+D:\Projects\CG\lab04\lab04\bin\Debug\lab04.exe
+D:\Projects\CG\lab04\lab04\bin\Debug\lab04.pdb
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.csprojAssemblyReference.cache
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.Form1.resources
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.Properties.Resources.resources
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.csproj.GenerateResource.cache
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.csproj.CoreCompileInputs.cache
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.exe
+D:\Projects\CG\lab04\lab04\obj\Debug\lab04.pdb
