@@ -93,8 +93,10 @@ namespace lab04 {
 
                     if (inter.X == float.MaxValue && inter.Y == float.MaxValue)
                         interOut.Text = "Нет пересечения";
-                    else
+                    else {
                         interOut.Text = $"X: {inter.X} Y: {inter.Y}";
+                        pic.FillEllipse(new SolidBrush(Color.Green), new Rectangle((int)inter.X - 2, (int)inter.Y - 2, 5, 5));
+                    }
 
                 }
             } else if (dot.Checked) {
