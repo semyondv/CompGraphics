@@ -180,7 +180,10 @@
             this.polyAcions.FormattingEnabled = true;
             this.polyAcions.Items.AddRange(new object[] {
             "Смещение",
-            "Поворот"});
+            "Поворот",
+            "Масштабирование",
+            "Принадлежит ли точка выпуклому многоугольнику ",
+            "Принадлежит ли точка невыпуклому многоугольнику"});
             this.polyAcions.Location = new System.Drawing.Point(439, 409);
             this.polyAcions.Name = "polyAcions";
             this.polyAcions.Size = new System.Drawing.Size(153, 21);
