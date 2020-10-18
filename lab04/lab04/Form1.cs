@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lab04 {
-    public partial class Form1 : Form {
+    public partial class Form1 : Form 
+    {
         Graphics pic;
         List<PointF> pointsArr;
         PointF firstP, lastP;
@@ -49,9 +50,26 @@ namespace lab04 {
                     pic.FillRectangle(new SolidBrush(Color.White), 0, 0, picArea.Width, picArea.Height);
                     for (int i = 0; i < pointsArr.Count - 1; i++)
                         pic.DrawLine(new Pen(Color.Black), pointsArr[i], pointsArr[i + 1]);
-                }
+                } else if(polyAcions.SelectedIndex == 2) {
+                    PointF center = AT.PolygonCenter(pointsArr);
+                    for (int i = 0; i < pointsArr.Count; i++)
+                        pointsArr[i] = AT.Scaling(center, (double)dx.Value, (double)dy.Value, pointsArr[i]);
+                    pic.FillRectangle(new SolidBrush(Color.White), 0, 0, picArea.Width, picArea.Height);
+                    for (int i = 0; i < pointsArr.Count - 1; i++)
+                        pic.DrawLine(new Pen(Color.Black), pointsArr[i], pointsArr[i + 1]);
+                } 
+                
             } else if (line.Checked) {
-                if (lineActions.SelectedIndex == 3) {
+               if(lineActions.SelectedIndex == 2)
+                {
+                    PointF center = new PointF((pointsArr[0].X + pointsArr[1].X) / 2, (pointsArr[0].Y + pointsArr[1].Y) / 2);
+                    for (int i = 0; i < pointsArr.Count; i++)
+                        pointsArr[i] = AT.Rotation(center, 90, pointsArr[i]);
+                    pic.FillRectangle(new SolidBrush(Color.White), 0, 0, picArea.Width, picArea.Height);
+                    for (int i = 0; i < pointsArr.Count - 1; i++)
+                        pic.DrawLine(new Pen(Color.Black), pointsArr[i], pointsArr[i + 1]);
+                }
+               else if (lineActions.SelectedIndex == 3) {
                     if (pointsArr.Count >= 3) {
                         PointF dotPos = pointsArr.Last();
                         double res = (dotPos.X - pointsArr[pointsArr.Count - 2].X) 
@@ -70,6 +88,18 @@ namespace lab04 {
                     }
                 }
             }
+            else if (dot.Checked)
+            {
+                if (polyAcions.SelectedIndex == 3)
+                {
+                    CheckConvex(pointsArr[pointsArr.Count - 1]);
+                }
+                else if (polyAcions.SelectedIndex == 4)
+                {
+                    CheckNonConvex(pointsArr[pointsArr.Count - 1]);
+                }
+            }
+
 
             picArea.Invalidate();
         }
@@ -115,5 +145,82 @@ namespace lab04 {
             }
             picArea.Invalidate();
         }
+
+        //Принадлежит ли точка выпуклому многоугольнику
+        public void CheckNonConvex(PointF point)
+        {
+            bool flag = false;
+
+            float x0 = pointsArr[0].X;
+            float y0 = pointsArr[0].Y;
+            float xD = pointsArr[1].X - x0;
+            float yD = pointsArr[1].Y - y0;
+
+            int sign = Math.Sign(yD * (point.X - x0) - xD * (point.Y - y0));
+            for (int i = 2; i < pointsArr.Count; i++)
+            {
+                x0 = pointsArr[i - 1].X;
+                y0 = pointsArr[i - 1].Y;
+                xD = pointsArr[i].X - x0;
+                yD = pointsArr[i].Y - y0;
+
+                if (sign * (yD * (point.X - x0) - xD * (point.Y - y0)) < 0)
+                {
+                    flag = !flag;
+                }
+            }
+            x0 = pointsArr[pointsArr.Count - 1].X;
+            y0 = pointsArr[pointsArr.Count - 1].Y;
+            xD = pointsArr[0].X - x0;
+            yD = pointsArr[0].Y - y0;
+
+            if (sign * (yD * (point.X - x0) - xD * (point.Y - y0)) < 0)
+            {
+                flag = !flag;
+            }
+
+            if(flag)
+               interOut.Text = "Точка не принадлежит невыпуклому многоугольнику";
+            else
+               interOut.Text = "Точка принадлежит невыпуклому многоугольнику";
+        }
+
+
+        //Принадлежит ли точка невыпуклому многоугольнику
+        public void CheckConvex(PointF point)
+        {
+            float x0 = pointsArr[0].X;
+            float y0 = pointsArr[0].Y;
+            float xD = pointsArr[1].X - x0;
+            float yD = pointsArr[1].Y - y0;
+
+            int sign = Math.Sign(yD * (point.X - x0) - xD * (point.Y - y0));
+            for (int i = 2; i < pointsArr.Count; i++)
+            {
+                x0 = pointsArr[i - 1].X;
+                y0 = pointsArr[i - 1].Y;
+                xD = pointsArr[i].X - x0;
+                yD = pointsArr[i].Y - y0;
+
+                if (sign * (yD * (point.X - x0) - xD * (point.Y - y0)) < 0)
+                {
+                    interOut.Text = "Точка не принадлежит выпуклому многоугольнику";
+                    return;
+                }
+            }
+            x0 = pointsArr[pointsArr.Count - 1].X;
+            y0 = pointsArr[pointsArr.Count - 1].Y;
+            xD = pointsArr[0].X - x0;
+            yD = pointsArr[0].Y - y0;
+
+            if (sign * (yD * (point.X - x0) - xD * (point.Y - y0)) < 0)
+            {
+                interOut.Text = "Точка не принадлежит выпуклому многоугольнику";
+                return;
+            }
+                interOut.Text = "Точка принадлежит выпуклому многоугольнику";
+        }
+
+        
     }
 }
