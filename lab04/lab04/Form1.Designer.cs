@@ -43,8 +43,6 @@
             this.polyAcions = new System.Windows.Forms.ComboBox();
             this.angleVal = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.pointPositionInfo = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dy)).BeginInit();
@@ -109,8 +107,7 @@
             this.lineActions.Items.AddRange(new object[] {
             "Пересечение ребер",
             "Смещение",
-            "Поворот 90",
-            "Положение точки"});
+            "Поворот 90"});
             this.lineActions.Location = new System.Drawing.Point(280, 409);
             this.lineActions.Name = "lineActions";
             this.lineActions.Size = new System.Drawing.Size(153, 21);
@@ -181,10 +178,7 @@
             this.polyAcions.FormattingEnabled = true;
             this.polyAcions.Items.AddRange(new object[] {
             "Смещение",
-            "Поворот",
-            "Масштабирование",
-            "Принадлежит ли точка выпуклому многоугольнику ",
-            "Принадлежит ли точка невыпуклому многоугольнику"});
+            "Поворот"});
             this.polyAcions.Location = new System.Drawing.Point(439, 409);
             this.polyAcions.Name = "polyAcions";
             this.polyAcions.Size = new System.Drawing.Size(153, 21);
@@ -211,31 +205,11 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Угол поворота";
             // 
-            // pointPositionInfo
-            // 
-            this.pointPositionInfo.AutoSize = true;
-            this.pointPositionInfo.Location = new System.Drawing.Point(523, 493);
-            this.pointPositionInfo.Name = "pointPositionInfo";
-            this.pointPositionInfo.Size = new System.Drawing.Size(0, 13);
-            this.pointPositionInfo.TabIndex = 13;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(507, 463);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 515);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.pointPositionInfo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.angleVal);
             this.Controls.Add(this.polyAcions);
@@ -278,8 +252,6 @@
         private System.Windows.Forms.ComboBox polyAcions;
         private System.Windows.Forms.NumericUpDown angleVal;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label pointPositionInfo;
-        private System.Windows.Forms.Button button3;
     }
 }
 

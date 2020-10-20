@@ -30,8 +30,6 @@ namespace lab04
             }
             return i;
         }
-
-        //Смещение на dx, dy
         public static PointF Move(PointF curP, int dx, int dy)
         {
             double[,] matrix = 
@@ -42,8 +40,6 @@ namespace lab04
 
             return newP;
         }
-
-
         public static PointF MatrixMul(PointF point, double[,] mat)
         {
             PointF newP = new PointF(0, 0);
@@ -67,22 +63,6 @@ namespace lab04
             newP.Y = (int)m2[1, 1];
             return newP;
         }
-
-        //Масштабирование относительно центра
-        public static PointF Scaling(PointF center, double kx, double ky, PointF curP)
-        {
-            double[,] move_mat1 = { { 1, 0, 0 }, { 0, 1, 0 }, { -center.X, -center.Y, 1 } };
-            double[,] move_mat2 = { { 1, 0, 0 }, { 0, 1, 0 }, { center.X, center.Y, 1 } };
-            double[,] scale_mat = { { kx, 0, 0 }, { 0, ky, 0 }, { 0, 0, 1 } };
-
-            PointF newP = MatrixMul(curP, move_mat1);
-            newP = MatrixMul(newP, scale_mat);
-            newP = MatrixMul(newP, move_mat2);
-
-            return newP;
-        }
-
-        //Вращение относительно центра
         public static PointF Rotation(PointF center, int angle, PointF curP)
         {
             double[,] m1 = { 
@@ -95,8 +75,8 @@ namespace lab04
                 { center.X, center.Y, 1 } 
             },
                 m3 = { 
-                { Math.Cos(Math.PI / 180.0 * angle), Math.Sin(Math.PI / 180.0 * angle), 0 }, 
-                { -Math.Sin(Math.PI / 180.0 * angle), Math.Cos(Math.PI / 180.0 * angle), 0 }, 
+                { Math.Cos(Math.PI / 180 * angle), Math.Sin(Math.PI / 180 * angle), 0 }, 
+                { -Math.Sin(Math.PI / 180 * angle), Math.Cos(Math.PI / 180 * angle), 0 }, 
                 { 0, 0, 1 } 
             };
 
@@ -106,7 +86,6 @@ namespace lab04
 
             return newP;
         }
-
 
         public static PointF PolygonCenter(List<PointF> points)
         {
