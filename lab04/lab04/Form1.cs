@@ -92,14 +92,19 @@ namespace lab04 {
             {
                 if (polyAcions.SelectedIndex == 3)
                 {
-                    CheckConvex(pointsArr[pointsArr.Count - 1]);
+                    if (IsPointInPolygon(pointsArr, pointsArr[pointsArr.Count - 1]))
+                        interOut.Text = "внутри";
+                    else
+                        interOut.Text = "снаружи";
+                   
                 }
                 else if (polyAcions.SelectedIndex == 4)
                 {
                     CheckNonConvex(pointsArr[pointsArr.Count - 1]);
                 }
-            }
 
+            }
+            
 
             picArea.Invalidate();
         }
@@ -144,6 +149,51 @@ namespace lab04 {
             picArea.Invalidate();
         }
 
+
+        public int ccw(PointF a, PointF b, PointF c)
+        {
+                float res = (b.Y - a.Y) * (c.X - b.X) - (c.Y - b.Y) * (b.X - a.X);
+
+                if (res == 0)
+                    return 0;
+                if (res > 0)
+                    return 1;
+                return -1;
+            
+        }
+
+
+
+        public bool is_convex(List<PointF> p)
+        {
+            int l, i, r;
+            int n = p.Count;
+            int isccw = ccw(p[n - 1], p[0], p[1]);
+            for (i = 1; i < n; ++i)
+            {
+                l = (i - 1 + n) % n;
+                r = (i + 1) % n;
+                if (ccw(p[l], p[i], p[r]) != isccw)
+                {
+                    MessageBox.Show(ccw(p[l], p[i], p[r]).ToString());
+                    MessageBox.Show(isccw.ToString());
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (is_convex(pointsArr) == true)
+                MessageBox.Show("Выпуклый");
+            else
+                MessageBox.Show("Впуклый");
+
+        }
+
+
+
         //Принадлежит ли точка выпуклому многоугольнику
         public void CheckNonConvex(PointF point)
         {
@@ -187,9 +237,9 @@ namespace lab04 {
         //Принадлежит ли точка невыпуклому многоугольнику
         public void CheckConvex(PointF point)
         {
-            float x0 = pointsArr[0].X;
+            float x0 = firstP.X;
             float y0 = pointsArr[0].Y;
-            float xD = pointsArr[1].X - x0;
+            float xD = firstP.X - x0;
             float yD = pointsArr[1].Y - y0;
 
             int sign = Math.Sign(yD * (point.X - x0) - xD * (point.Y - y0));
@@ -219,6 +269,25 @@ namespace lab04 {
                 interOut.Text = "Точка принадлежит выпуклому многоугольнику";
         }
 
-        
+       
+
+        public static bool IsPointInPolygon(List<PointF> polygon, PointF testPoint)
+        {
+            bool result = false;
+            int j = polygon.Count() - 1;
+            for (int i = 0; i < polygon.Count(); i++)
+            {
+                if (polygon[i].Y < testPoint.Y && polygon[j].Y >= testPoint.Y || polygon[j].Y < testPoint.Y && polygon[i].Y >= testPoint.Y)
+                {
+                    if (polygon[i].X + (testPoint.Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) * (polygon[j].X - polygon[i].X) < testPoint.X)
+                    {
+                        result = !result;
+                    }
+                }
+                j = i;
+            }
+            return result;
+        }
+
     }
 }

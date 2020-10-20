@@ -44,6 +44,7 @@
             this.angleVal = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.pointPositionInfo = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dy)).BeginInit();
@@ -218,11 +219,22 @@
             this.pointPositionInfo.Size = new System.Drawing.Size(0, 13);
             this.pointPositionInfo.TabIndex = 13;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(507, 463);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(692, 515);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.pointPositionInfo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.angleVal);
@@ -267,6 +279,7 @@
         private System.Windows.Forms.NumericUpDown angleVal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label pointPositionInfo;
+        private System.Windows.Forms.Button button3;
     }
 }
 

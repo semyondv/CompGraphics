@@ -1,0 +1,10 @@
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\bin\Debug\lab05_3.exe.config
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\bin\Debug\lab05_3.exe
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\bin\Debug\lab05_3.pdb
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.csprojAssemblyReference.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.Form1.resources
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.Properties.Resources.resources
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.csproj.GenerateResource.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.csproj.CoreCompileInputs.cache
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.exe
+C:\Users\MaDMaX\Documents\Visual Studio 2019\CompGraph\lab05_3\lab05_3\obj\Debug\lab05_3.pdb

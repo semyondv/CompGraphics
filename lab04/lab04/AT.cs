@@ -73,7 +73,7 @@ namespace lab04
         {
             double[,] move_mat1 = { { 1, 0, 0 }, { 0, 1, 0 }, { -center.X, -center.Y, 1 } };
             double[,] move_mat2 = { { 1, 0, 0 }, { 0, 1, 0 }, { center.X, center.Y, 1 } };
-            double[,] scale_mat = { { 1 / kx, 0, 0 }, { 0, 1 / ky, 0 }, { 0, 0, 1 } };
+            double[,] scale_mat = { { kx, 0, 0 }, { 0, ky, 0 }, { 0, 0, 1 } };
 
             PointF newP = MatrixMul(curP, move_mat1);
             newP = MatrixMul(newP, scale_mat);
