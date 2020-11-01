@@ -52,7 +52,7 @@ namespace Lab6 {
                 for (int r = 0; r < 4; ++r)
                     c[0, j] += xyz[0, r] * mat[r, j];
             }
-            AT.MatrixMul(this, mat);
+            //AT.MatrixMul(this, mat);
             p.X = c[0, 0] / c[0, 3];
             p.Y = c[0, 1] / c[0, 3];
 
@@ -72,10 +72,13 @@ namespace Lab6 {
         public Figure(List<PointXYZ> pts = null) {
             if (pts != null) {
                 Points = new List<PointXYZ>(pts);
+                //foreach (var item in pts) {
+                //    Points.Add(new PointXYZ(item.X, item.Y, item.Z));
+                //}
             }
         }
 
-        private void UpdateCenter() {
+        public void UpdateCenter() {
             Center.X = 0;
             Center.Y = 0;
             Center.Z = 0;
@@ -165,7 +168,7 @@ namespace Lab6 {
                 UpdateCenter();
             }
         }
-        protected void UpdateCenter() {
+        public void UpdateCenter() {
             Center.X = 0;
             Center.Y = 0;
             Center.Z = 0;
@@ -359,82 +362,7 @@ namespace Lab6 {
     }
     class Octahedron : Figure3D {
         public Octahedron() {
-            Figure3D cube = new Hexahedron();
-
-            Figure f0 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[2].Center),
-                    new PointXYZ(cube.Sides[1].Center),
-                    new PointXYZ(cube.Sides[4].Center)
-                }
-            );
-
-            Figure f1 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[2].Center),
-                    new PointXYZ(cube.Sides[1].Center),
-                    new PointXYZ(cube.Sides[5].Center)
-                }
-            );
-
-            Figure f2 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[2].Center),
-                    new PointXYZ(cube.Sides[5].Center),
-                    new PointXYZ(cube.Sides[0].Center)
-                }
-            );
-
-            Figure f3 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[2].Center),
-                    new PointXYZ(cube.Sides[0].Center),
-                    new PointXYZ(cube.Sides[4].Center)
-                }
-            );
-
-            Figure f4 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[3].Center),
-                    new PointXYZ(cube.Sides[1].Center),
-                    new PointXYZ(cube.Sides[4].Center)
-                }
-            );
-
-            Figure f5 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[3].Center),
-                    new PointXYZ(cube.Sides[1].Center),
-                    new PointXYZ(cube.Sides[5].Center)
-                }
-            );
-
-            Figure f6 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[3].Center),
-                    new PointXYZ(cube.Sides[5].Center),
-                    new PointXYZ(cube.Sides[0].Center)
-                }
-            );
-
-            Figure f7 = new Figure(
-                new List<PointXYZ>
-                {
-                    new PointXYZ(cube.Sides[3].Center),
-                    new PointXYZ(cube.Sides[0].Center),
-                    new PointXYZ(cube.Sides[4].Center)
-                }
-            );
-
-            Sides = new List<Figure> { f0, f1, f2, f3, f4, f5, f6, f7 };
-            UpdateCenter();
+            
         }
     }
 }

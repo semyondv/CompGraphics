@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Lab6 {
     public partial class Form1 : Form {
@@ -75,6 +76,58 @@ namespace Lab6 {
             } else if (comboBox1.SelectedIndex == 2) {
                 p.ReflectZ();
             }
+            p.Draw(g);
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            StreamWriter writer = new StreamWriter(File.OpenWrite(saveFileDialog1.FileName));
+            foreach (var side in p.Sides) {
+                foreach (var pt in side.Points) {
+                    writer.Write(pt.X);
+                    writer.Write(" ");
+                    writer.Write(pt.Y);
+                    writer.Write(" ");
+                    writer.Write(pt.Z);
+                    writer.Write(" ");
+                }
+                writer.WriteLine("");
+            }
+
+            writer.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string fileText = File.ReadAllText(openFileDialog1.FileName);
+            Figure3D figure = new Figure3D();
+            figure.Sides = new List<Figure>();
+
+            var rows = fileText.Split('\n');
+            foreach (string row in rows) {
+                string[] strPoints = row.Split(' ');
+                List<PointXYZ> pts = new List<PointXYZ>();
+
+                if (strPoints.Length > 0) {
+                    for (int i = 0; i < strPoints.Length - 1; i += 3) {
+                        float x, y, z;
+                        x = (float)Convert.ToDouble(strPoints[i]);
+                        y = (float)Convert.ToDouble(strPoints[i + 1]);
+                        z = (float)Convert.ToDouble(strPoints[i + 2]);
+
+                        pts.Add(new PointXYZ(x, y, z));
+
+                    }
+                    figure.Sides.Add(new Figure(pts));
+                    pts.Clear();
+                }
+                
+            }
+            figure.UpdateCenter();
+            g.Clear(Color.White);
+            p = figure;
             p.Draw(g);
         }
     }
