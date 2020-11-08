@@ -17,12 +17,20 @@ namespace Lab6 {
             g.TranslateTransform(pictureBox1.ClientSize.Width / 2, pictureBox1.ClientSize.Height / 2);
             g.ScaleTransform(1, -1);
             g.Clear(Color.White);
+
+            g1 = pictureBox2.CreateGraphics();
+            g1.TranslateTransform(pictureBox2.ClientSize.Width / 2, pictureBox2.ClientSize.Height / 2);
+            g1.ScaleTransform(1, -1);
+            g1.Clear(Color.White);
         }
         Graphics g;
+        Graphics g1;
         Figure3D p;
+        Figure3D cam_p;
 
         private void draw_btn_Click(object sender, EventArgs e) {
             g.Clear(Color.White);
+            g1.Clear(Color.White);
             if (radioButton1.Checked) {
                 p = new Tetrahedron();
             } else if (radioButton2.Checked) {
@@ -30,41 +38,68 @@ namespace Lab6 {
             } else if (radioButton3.Checked) {
                 p = new Octahedron();
             }
+
+            cam_p = p;
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void label3_Click(object sender, EventArgs e) {
 
         }
 
+        private void DrawCameraFigure() {
+            g1.Clear(Color.White);
+
+            cam_p.Move((float)camTranslationX.Value, (float)camTranslationY.Value, (float)camTranslationZ.Value);
+            cam_p.RotateX(-(float)camRotationX.Value);
+            cam_p.RotateY(-(float)camRotationY.Value);
+            cam_p.RotateZ(-(float)camRotationZ.Value);
+
+            cam_p.Draw(g1);
+
+            cam_p.RotateZ((float)camRotationZ.Value);
+            cam_p.RotateY((float)camRotationY.Value);
+            cam_p.RotateX((float)camRotationX.Value);
+            cam_p.Move(-(float)camTranslationX.Value, -(float)camTranslationY.Value, -(float)camTranslationZ.Value);
+        }
+
         private void transform_Click(object sender, EventArgs e) {
             g.Clear(Color.White);
+            g1.Clear(Color.White);
 
             p.Move((float)numericMoveX.Value, (float)numericMoveY.Value, (float)numericMoveZ.Value);
             p.Scaling((float)numericScaleX.Value, (float)numericScaleY.Value, (float)numericScaleZ.Value);
             
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void rotationValueX_ValueChanged(object sender, EventArgs e) {
             g.Clear(Color.White);
+            g1.Clear(Color.White);
 
             p.RotateX(rotationValueX.Value);
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void rotationValueY_ValueChanged(object sender, EventArgs e) {
             g.Clear(Color.White);
+            g1.Clear(Color.White);
 
             p.RotateY(rotationValueY.Value);
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void rotationValueZ_ValueChanged(object sender, EventArgs e) {
             g.Clear(Color.White);
+            g1.Clear(Color.White);
 
             p.RotateZ(rotationValueZ.Value);
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -77,6 +112,7 @@ namespace Lab6 {
                 p.ReflectZ();
             }
             p.Draw(g);
+            DrawCameraFigure();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -101,11 +137,11 @@ namespace Lab6 {
         private void button2_Click(object sender, EventArgs e) {
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
-            string fileText = File.ReadAllText(openFileDialog1.FileName);
+            string data = File.ReadAllText(openFileDialog1.FileName);
             Figure3D figure = new Figure3D();
             figure.Sides = new List<Figure>();
 
-            var rows = fileText.Split('\n');
+            var rows = data.Split('\n');
             foreach (string row in rows) {
                 string[] strPoints = row.Split(' ');
                 List<PointXYZ> pts = new List<PointXYZ>();
@@ -127,8 +163,19 @@ namespace Lab6 {
             }
             figure.UpdateCenter();
             g.Clear(Color.White);
+            g1.Clear(Color.White);
             p = figure;
+            cam_p = p;
             p.Draw(g);
+            DrawCameraFigure();
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+
         }
     }
 }
