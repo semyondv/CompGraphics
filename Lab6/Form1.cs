@@ -39,7 +39,7 @@ namespace Lab6 {
                 p = new Octahedron();
             }
 
-            cam_p = p;
+            cam_p = p.DeepCopy();
             p.Draw(g);
             DrawCameraFigure();
         }
@@ -50,6 +50,7 @@ namespace Lab6 {
 
         private void DrawCameraFigure() {
             g1.Clear(Color.White);
+            cam_p = p.DeepCopy();
 
             cam_p.Move((float)camTranslationX.Value, (float)camTranslationY.Value, (float)camTranslationZ.Value);
             cam_p.RotateX(-(float)camRotationX.Value);
@@ -58,10 +59,10 @@ namespace Lab6 {
 
             cam_p.Draw(g1);
 
-            cam_p.RotateZ((float)camRotationZ.Value);
-            cam_p.RotateY((float)camRotationY.Value);
-            cam_p.RotateX((float)camRotationX.Value);
-            cam_p.Move(-(float)camTranslationX.Value, -(float)camTranslationY.Value, -(float)camTranslationZ.Value);
+            //cam_p.RotateZ((float)camRotationZ.Value);
+            //cam_p.RotateY((float)camRotationY.Value);
+            //cam_p.RotateX((float)camRotationX.Value);
+            //cam_p.Move(-(float)camTranslationX.Value, -(float)camTranslationY.Value, -(float)camTranslationZ.Value);
         }
 
         private void transform_Click(object sender, EventArgs e) {
@@ -165,7 +166,7 @@ namespace Lab6 {
             g.Clear(Color.White);
             g1.Clear(Color.White);
             p = figure;
-            cam_p = p;
+            cam_p = p.DeepCopy();
             p.Draw(g);
             DrawCameraFigure();
         }
