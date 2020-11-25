@@ -51,8 +51,6 @@ void rectangle() {
 	glEnd();
 }
 
-// Ф-ии построения стандартных примитивов:
-
 // Ф-ия построения куба
 void solidCube() {
 	glutSolidCube(0.5);
@@ -103,9 +101,24 @@ void triangleWithDifferentVertex() {
 	glEnd();
 }
 
+void largePoints() {
+	glPointSize(10.0f);
+	glBegin(GL_POINTS);
+	glColor3f(0.9, 0.9, 0.9);
+	glVertex3f(-0.25f, -0.25f, -0.25f);
+	glVertex3f(-0.25f, -0.25f, 0.25f);
+	glVertex3f(-0.25f, 0.25f, -0.25f);
+	glVertex3f(-0.25f, 0.25f, 0.25f);
+	glVertex3f(0.25f, -0.25f, -0.25f);
+	glVertex3f(0.25f, -0.25f, 0.25f);
+	glVertex3f(0.25f, 0.25f, -0.25f);
+	glVertex3f(0.25f, 0.25f, 0.25f);
+	glEnd();
+}
+
 typedef void(*callback_t)(void);
 vector<callback_t> allPrimitives = {solidCube, wireCube, wireTeapot, wireTorus,
-wireTetrahedron, wireIcosahedron, triangle, rectangle, triangleWithDifferentVertex };
+wireTetrahedron, wireIcosahedron, triangle, rectangle, triangleWithDifferentVertex, largePoints };
 
 
 // Ф-ия изменения примитива по щелчку мыши
@@ -149,6 +162,7 @@ void update() {
 
 
 	allPrimitives[index]();
+	//largePoints();
 
 	/*triangle();
 	rectangle();
