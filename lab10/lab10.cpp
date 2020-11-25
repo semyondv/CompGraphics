@@ -116,9 +116,27 @@ void largePoints() {
 	glEnd();
 }
 
+void doubleTriangles() {
+	glBegin(GL_TRIANGLES);
+	//Текущим - делаем красный цвет по( RGB)
+	glColor3f(1.0f, 0.0f, 0.0f);
+	//Первый красный треугольник
+	glVertex3f(-0.4f, 0.0f, -0.25f);
+	glVertex3f(-0.4f, 0.0f, 0.25f);
+	glVertex3f(0.4f, 0.0f, 0.25f);
+	//Текущим - делаем синий цвет по( RGB)
+	glColor3f(0.0f, 0.0f, 1.0f);
+	//Рисуем второй синий треугольник
+	glVertex3f(-0.4f, 0.0f, -0.25f);
+	glVertex3f(0.4f, 0.0f, -0.25f);
+	glVertex3f(0.4f, 0.0f, 0.25f);
+	glEnd();
+
+}
+
 typedef void(*callback_t)(void);
 vector<callback_t> allPrimitives = {solidCube, wireCube, wireTeapot, wireTorus,
-wireTetrahedron, wireIcosahedron, triangle, rectangle, triangleWithDifferentVertex, largePoints };
+wireTetrahedron, wireIcosahedron, triangle, rectangle, triangleWithDifferentVertex, largePoints, doubleTriangles };
 
 
 // Ф-ия изменения примитива по щелчку мыши
@@ -162,6 +180,8 @@ void update() {
 
 
 	allPrimitives[index]();
+
+	//doubleTriangles();
 	//largePoints();
 
 	/*triangle();
