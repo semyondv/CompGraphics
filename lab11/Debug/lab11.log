@@ -1,0 +1,11 @@
+﻿  lab11.cpp
+D:\Projects\CG\lab11\lab11.cpp(26,29): warning C4305: инициализация: усечение из "double" в "float"
+D:\Projects\CG\lab11\lab11.cpp(27,29): warning C4305: инициализация: усечение из "double" в "float"
+D:\Projects\CG\lab11\lab11.cpp(91,27): warning C4305: аргумент: усечение из "double" в "GLfloat"
+D:\Projects\CG\lab11\lab11.cpp(107,27): warning C4305: аргумент: усечение из "double" в "GLfloat"
+D:\Projects\CG\lab11\lab11.cpp(129,28): warning C4305: аргумент: усечение из "double" в "GLfloat"
+D:\Projects\CG\lab11\lab11.cpp(304,55): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Projects\CG\lab11\lab11.cpp(305,55): warning C4244: +=: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Projects\CG\lab11\lab11.cpp(308,55): warning C4244: -=: преобразование "double" в "GLfloat", возможна потеря данных
+D:\Projects\CG\lab11\lab11.cpp(309,55): warning C4244: -=: преобразование "double" в "GLfloat", возможна потеря данных
+  lab11.vcxproj -> D:\Projects\CG\lab10\Debug\lab11.exe
