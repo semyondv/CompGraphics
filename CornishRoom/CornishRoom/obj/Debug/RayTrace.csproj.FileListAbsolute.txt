@@ -1,0 +1,9 @@
+D:\Projects\CG\CornishRoom\CornishRoom\bin\Debug\CornishRoom.exe
+D:\Projects\CG\CornishRoom\CornishRoom\bin\Debug\CornishRoom.pdb
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\RayTrace.csprojAssemblyReference.cache
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\RayTrace.Form1.resources
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\CornishRoom.Properties.Resources.resources
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\RayTrace.csproj.GenerateResource.cache
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\RayTrace.csproj.CoreCompileInputs.cache
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\CornishRoom.exe
+D:\Projects\CG\CornishRoom\CornishRoom\obj\Debug\CornishRoom.pdb
